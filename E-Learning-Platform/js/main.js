@@ -1,10 +1,8 @@
 //main.js
 import { courses } from "./data.js";
 
+// COURSE TABLE (Courses Page)
 
-// ===============================
-// 📊 COURSE TABLE (Courses Page)
-// ===============================
 const tableBody = document.getElementById("courseTable");
 
 if (tableBody) {
@@ -16,9 +14,8 @@ if (tableBody) {
 }
 
 
-// ===============================
-// 🎯 COURSE CARD DATA
-// ===============================
+// COURSE CARD DATA
+
 const courseData = {
   html: {
     title: "HTML Basics",
@@ -40,9 +37,8 @@ const courseData = {
   }
 };
 
-// ===============================
-// 📚 RENDER COURSE DETAILS
-// ===============================
+// RENDER COURSE DETAILS
+
 function renderCourse(courseId) {
   const course = courseData[courseId];
 
@@ -84,17 +80,15 @@ function renderCourse(courseId) {
   });
 }
 
-// ===============================
-// 🔗 GET COURSE FROM URL
-// ===============================
+// GET COURSE FROM URL
+
 function getCourseFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
 }
 
-// ===============================
-// 🧩 RENDER COURSE CARDS
-// ===============================
+// RENDER COURSE CARDS
+
 async function renderCourseCards() {
 
   const loader = document.getElementById("courseLoader");
@@ -138,9 +132,6 @@ async function renderCourseCards() {
 }
 
 
-// ===============================
-// 🚀 INIT
-// ===============================
 window.addEventListener("DOMContentLoaded", () => {
 
   // Courses Page
@@ -170,10 +161,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// COMPLETE LESSON
 
-// ===============================
-// 🎯 COMPLETE LESSON
-// ===============================
 function completeLesson(courseId, index) {
   let lessons = JSON.parse(localStorage.getItem(courseId + "-lessons")) || [];
 
@@ -185,10 +174,8 @@ function completeLesson(courseId, index) {
   updateProgress(courseId);
 }
 
+// UPDATE BUTTON UI
 
-// ===============================
-// 🎨 UPDATE BUTTON UI
-// ===============================
 function updateLessonUI(courseId, index) {
   const btn = document.getElementById(`${courseId}-lesson-${index}`);
 
@@ -199,10 +186,8 @@ function updateLessonUI(courseId, index) {
   }
 }
 
+// UPDATE PROGRESS PANEL
 
-// ===============================
-// 📊 UPDATE PROGRESS PANEL
-// ===============================
 function updateProgress(courseId) {
   let lessons = JSON.parse(localStorage.getItem(courseId + "-lessons")) || [];
 
@@ -211,7 +196,7 @@ function updateProgress(courseId) {
 
   const percent = Math.round((completed / total) * 100);
 
-  // 🔹 Update UI
+  // Update UI
   const progressEl = document.getElementById("progressPercent");
   if (progressEl) {
     progressEl.textContent = percent + "%";
@@ -225,7 +210,7 @@ function updateProgress(courseId) {
       bar.value = percent;
     }, 200);
   }
-  // 🔹 Save completed course
+  // Save completed course
   if (percent === 100) {
     let completedCourses = JSON.parse(localStorage.getItem("completedCourses")) || [];
 
@@ -259,9 +244,8 @@ function checkFinalAssessment() {
   }
 }
 
-// ===============================
-// 🔄 LOAD SAVED LESSON STATE
-// ===============================
+// LOAD SAVED LESSON STATE
+
 function loadLessons(courseId) {
   let lessons = JSON.parse(localStorage.getItem(courseId + "-lessons")) || [];
 
@@ -274,10 +258,8 @@ function loadLessons(courseId) {
   updateProgress(courseId);
 }
 
+// DASHBOARD PROGRESS
 
-// ===============================
-// 📈 DASHBOARD PROGRESS
-// ===============================
 const progress = document.getElementById("overallProgress");
 const progressText = document.getElementById("progressText");
 const completedList = document.getElementById("completedList");
@@ -310,10 +292,8 @@ if (progress) {
   });
 }
 
+// QUIZ RESULT (PROFILE PAGE)
 
-// ===============================
-// 🧠 QUIZ RESULT (PROFILE PAGE)
-// ===============================
 const totalScore = document.getElementById("totalScore");
 const progressBar = document.getElementById("quizProgress");
 const percentageEl = document.getElementById("percentage");
@@ -341,10 +321,8 @@ if (totalScore) {
   }
 }
 
+// COMPLETED COURSES (PROFILE)
 
-// ===============================
-// 📜 COMPLETED COURSES (PROFILE)
-// ===============================
 const profileCourses = document.getElementById("profileCourses");
 
 if (profileCourses) {
@@ -364,9 +342,8 @@ if (profileCourses) {
   }
 }
 
-// ===============================
-// 📊 PROFILE COMPLETION FIX
-// ===============================
+// PROFILE COMPLETION FIX
+
 const profileCompletion = document.getElementById("progressPercent");
 
 if (profileCompletion) {
@@ -379,9 +356,8 @@ if (profileCompletion) {
   profileCompletion.textContent = percent + "%";
 }
 
-// ===============================
-// 📊 QUIZ ATTEMPTS
-// ===============================
+// QUIZ ATTEMPTS
+
 const attemptCount = document.getElementById("attemptCount");
 let attempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
 
