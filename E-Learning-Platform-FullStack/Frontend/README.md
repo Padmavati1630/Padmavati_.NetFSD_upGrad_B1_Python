@@ -124,7 +124,7 @@ project/
 ## How to Run
 
 1. Download or clone the repository
-2. Open `index.html` in browser
+2. Open `login.html` in browser
 3. Navigate using navbar
 
 ---
