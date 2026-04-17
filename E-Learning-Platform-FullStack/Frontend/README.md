@@ -6,8 +6,6 @@ This is a **frontend multi-page e-learning web application** built using **HTML,
 
 The platform allows users to explore courses, attempt quizzes, track their learning progress, and view performance — all without a backend server.
 
-The application uses **LocalStorage** to persist user data and simulates **asynchronous data loading** to provide a dynamic user experience.
-
 Added backend implementation and updated frontend for full-stack integration
 
 ---
@@ -106,6 +104,7 @@ project/
 ├── courseDetails.html
 ├── quiz.html
 ├── profile.html
+├── login.html
 │
 ├── css/
 │   └── style.css
@@ -114,6 +113,7 @@ project/
 │   ├── main.js
 │   ├── quiz.js
 │   └── data.js
+│   └── auth.js
 │
 └── tests/
     └── grade.test.js
@@ -126,15 +126,6 @@ project/
 1. Download or clone the repository
 2. Open `login.html` in browser
 3. Navigate using navbar
-
----
-
-## Future Improvements
-
-* Dark mode
-* Certificate download feature
-* Backend integration
-* Leaderboard system
 
 ---
 
